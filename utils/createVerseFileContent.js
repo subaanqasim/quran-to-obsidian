@@ -19,7 +19,7 @@ tags: Qvref
 parent:: [[${surahFileName}|${surah.name}]]
 
 > [!arabic]+ Surah ${surah.name}, Verse ${verse.verseNumber} (${verse.verseKey})
-> ${verse.arabic}
+> <span class="quran-arabic">${verse.arabic}</span>
 ^arabic
 
 > [!translation]+ Surah ${surah.name}, Verse ${verse.verseNumber} (${verse.verseKey}) - Translation
