@@ -24,7 +24,7 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
 
 (function quranToObsidian() {
   for (const surah of surahs) {
-    const surahFolderPath = `${vaultPathQuran}/${surah.name}`;
+    const surahFolderPath = `${vaultPathQuran}/${surah.id} - ${surah.name}`;
 
     (async function createFiles() {
       try {
