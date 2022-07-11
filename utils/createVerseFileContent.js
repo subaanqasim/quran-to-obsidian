@@ -1,7 +1,7 @@
 import getFootnotes from "./getFootnotes.js";
 import parseTranslationHtml from "./parseTranslationHtml.js";
 
-export default function createVerseFileContent(
+export default async function createVerseFileContent(
   verse,
   verseFileName,
   surah,
@@ -12,7 +12,7 @@ export default function createVerseFileContent(
 
   // TODO: fix sorting somehow - ?base on file.ctime
 
-  const footnotes = getFootnotes(verse.english, quranFilePrefix);
+  const footnotes = await getFootnotes(verse.english, quranFilePrefix);
 
   const footnoteText =
     footnotes === null

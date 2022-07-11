@@ -22,55 +22,53 @@ if (!fs.pathExistsSync("./data/surahData.json")) {
 
 const { surahs } = fs.readJsonSync("./data/surahData.json");
 
-for (const surah of surahs) {
-  // create folder for current surah
-  const surahFolderPath = `${vaultPathQuran}/${surah.name}`;
+(function quranToObsidian() {
+  for (const surah of surahs) {
+    // create folder for current surah
+    const surahFolderPath = `${vaultPathQuran}/${surah.name}`;
 
-  fs.ensureDir(surahFolderPath, (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+    (async function createFiles() {
+      try {
+        await fs.ensureDir(surahFolderPath);
+        // create md file for current surah
+        const surahFileName = `${quranFilePrefix}${surah.name} (${surah.id})`;
+        const surahFilePath = `${surahFolderPath}/${surahFileName}.md`;
+        const surahFileContent = createSurahFileContent(
+          surah,
+          surahFileName,
+          quranFilePrefix
+        );
 
-    // create md file for current surah
-    const surahFileName = `${quranFilePrefix}${surah.name} (${surah.id})`;
-    const surahFilePath = `${surahFolderPath}/${surahFileName}.md`;
-    const surahFileContent = createSurahFileContent(
-      surah,
-      surahFileName,
-      quranFilePrefix
-    );
+        await fs.outputFile(surahFilePath, surahFileContent);
 
-    fs.outputFile(surahFilePath, surahFileContent, (err) => {
-      if (err) {
-        console.log(err);
-      }
-    });
-
-    // check to see if verses data for current surah exists
-    if (!fs.pathExistsSync(`./data/verses/${surah.id}.json`)) {
-      createVersesJson(surah.id);
-    }
-
-    const { verses } = fs.readJsonSync(`./data/verses/${surah.id}.json`);
-
-    // create file for each ayah of current surah
-    for (const verse of verses) {
-      const verseFileName = `${quranFilePrefix}${surah.id} - ${verse.verseNumber}`;
-      const verseFilePath = `${surahFolderPath}/${verseFileName}.md`;
-      const verseFileContent = createVerseFileContent(
-        verse,
-        verseFileName,
-        surah,
-        surahFileName,
-        quranFilePrefix
-      );
-
-      fs.outputFile(verseFilePath, verseFileContent, (err) => {
-        if (err) {
-          console.log(err);
+        // check to see if verses data for current surah exists
+        if (!fs.pathExistsSync(`./data/verses/${surah.id}.json`)) {
+          createVersesJson(surah.id);
         }
-      });
-    }
-  });
-}
+
+        const { verses } = fs.readJsonSync(`./data/verses/${surah.id}.json`);
+
+        // create file for each ayah of current surah
+        for (const verse of verses) {
+          const verseFileName = `${quranFilePrefix}${surah.id} - ${verse.verseNumber}`;
+          const verseFilePath = `${surahFolderPath}/${verseFileName}.md`;
+          const verseFileContent = await createVerseFileContent(
+            verse,
+            verseFileName,
+            surah,
+            surahFileName,
+            quranFilePrefix
+          );
+
+          fs.outputFile(verseFilePath, verseFileContent, (err) => {
+            if (err) {
+              console.log(err);
+            }
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }
+})();
