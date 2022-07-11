@@ -9,7 +9,7 @@ import createVerseFileContent from "./utils/createVerseFileContent.js";
 // const vaultPath = prompt("Enter the full directory to your vault root: ");
 // const vaultPathQuran = `${vaultPath}/Quran`
 
-const vaultPathQuran = "./Quran";
+const vaultPathQuran = "../Quran";
 const quranFilePrefix = "q - ";
 
 if (!fs.pathExistsSync("./data/surahData.json")) {

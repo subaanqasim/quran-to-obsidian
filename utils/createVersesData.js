@@ -42,7 +42,7 @@ export async function createVersesJson(chapterNum) {
   try {
     console.log(`Creating verses JSON file for ch. ${chapterNum}`);
 
-    await fs.outputJson(`../data/verses/${chapterNum}.json`, final);
+    await fs.outputJson(`./data/verses/${chapterNum}.json`, final);
 
     console.log(`Completed JSON creation for ch. ${chapterNum}`);
   } catch (err) {
