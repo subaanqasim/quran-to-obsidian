@@ -5,7 +5,8 @@
   "description": "Generate separate markdown files for all surahs and ayat of the Qur'an. Perfect for linking and referencing.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "quran-to-obsidian": "npm install && node index.js"
   },
   "author": "Subaan Qasim",
   "type": "module",
