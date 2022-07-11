@@ -4,3 +4,6 @@
 #local env files
 .env
 .env*.local
+
+#generated files
+**/Quran

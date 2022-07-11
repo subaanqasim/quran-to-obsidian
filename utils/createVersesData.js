@@ -24,20 +24,6 @@ const getChapterVerses = async (chapterNum) => {
   }
 };
 
-// TODO: regexReplace <sup></sup> with md footnote syntax e.g. [^1]
-
-// TODO: parse foot_note attribute using regex to get footnote number
-//   call footnote api
-//   regexReplace href to absolute url, OR replace whole <a></a> tag to wikilink to md file
-//   parse html footnotes to md using nhm
-//   add footnotes text to array
-//
-//   add footnotes text arr to english translation
-//     e.g. english: {
-//              text: v.translations[0].text,
-//              footnotes: ["footnote 1 text", "footnote 2 text"]
-//           }
-
 export async function createVersesJson(chapterNum) {
   const verses = await getChapterVerses(chapterNum);
 

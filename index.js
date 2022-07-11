@@ -1,15 +1,16 @@
 import fs from "fs-extra";
 // import promptSync from "prompt-sync";
-import { createSurahsJson } from "./utils/createSurahData";
-import createSurahFileContent from "./utils/createSurahFileContent";
-import { createVersesJson } from "./utils/createVersesData";
-import createVerseFileContent from "./utils/createVerseFileContent";
+import { createSurahsJson } from "./utils/createSurahData.js";
+import createSurahFileContent from "./utils/createSurahFileContent.js";
+import { createVersesJson } from "./utils/createVersesData.js";
+import createVerseFileContent from "./utils/createVerseFileContent.js";
 
 // const prompt = promptSync();
 // const vaultPath = prompt("Enter the full directory to your vault root: ");
 // const vaultPathQuran = `${vaultPath}/Quran`
 
 const vaultPathQuran = "./Quran";
+const quranFilePrefix = "q - ";
 
 if (!fs.pathExistsSync("./data/surahData.json")) {
   console.log("Creating Surah data...");
@@ -20,7 +21,6 @@ if (!fs.pathExistsSync("./data/surahData.json")) {
 }
 
 const { surahs } = fs.readJsonSync("./data/surahData.json");
-const quranFilePrefix = "q - ";
 
 for (const surah of surahs) {
   // create folder for current surah
