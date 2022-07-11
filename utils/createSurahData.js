@@ -14,6 +14,7 @@ const getSurahSummary = async (id) => {
 
     if (res.status >= 200 && res.status <= 299) {
       const data = await res.json();
+
       return {
         summary: data.chapter_info.text,
         excerpt: data.chapter_info.short_text,
@@ -39,7 +40,7 @@ export async function createSurahsJson() {
 
   for (const s of surahs) {
     const surahInfo = await getSurahSummary(s.id);
-
+    console.log(`Fetched ch. ${s.id} info ✅`);
     // TODO: create function to regexReplace relative href to absolute
     // can't do wikilink as it is a usually a range of ayat
     surahData = [
@@ -59,9 +60,9 @@ export async function createSurahsJson() {
   const final = { surahs: [...surahData] };
 
   try {
-    console.log("Creating SuraData.json ...");
+    console.log("Creating surahData.json ...");
 
-    await fs.outputJson("../data/surahData.json", final);
+    await fs.outputJson("./data/surahData.json", final);
   } catch (err) {
     console.error(err);
   }

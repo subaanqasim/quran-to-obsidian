@@ -15,7 +15,7 @@ const quranFilePrefix = "q - ";
 if (!fs.pathExistsSync("./data/surahData.json")) {
   console.log("Creating Surah data...");
 
-  createSurahsJson();
+  await createSurahsJson();
 
   console.log("✔ Created Surah Data");
 }
