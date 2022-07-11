@@ -125,7 +125,7 @@ Then create an `obsidian.css` file at `<VAULT_DIRECTORY>/.obsidian/snippets/` an
 }
 ```
 
-For example, the Arabic font I use is [KFGQPC Uthmanic Script HAFS](https://arabicfonts.net/fonts/kfgqpc-uthmanic-script-hafs-regular) as it is the same font of most mus'hafs used to memorise the Qur'an:
+For example, the Arabic font I use is [KFGQPC Uthmanic Script HAFS](https://arabicfonts.net/fonts/kfgqpc-uthmanic-script-hafs-regular) as it is the same font of most mus'hafs use.
 
 ```css
 .quran-arabic {
