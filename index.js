@@ -75,4 +75,5 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
       }
     })();
   }
+  console.log("☪ Qur'an to Obsidian is complete ☪. ✅✅✅");
 })();
