@@ -1,6 +1,6 @@
 {
   "name": "quran-to-obsidian",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Generate separate markdown files for all surahs and ayat of the Qur'an. Perfect for linking and referencing.",
   "main": "index.js",
