@@ -17,11 +17,11 @@ export default async function createVerseFileContent(
   const footnoteText =
     footnotes === null
       ? ""
-      : footnotes.reduce(
-          (acc, footnote) =>
-            (acc += `[^${footnote.footnoteNum}]: ${footnote.text}\n`),
-          ""
-        );
+      : footnotes.reduce((acc, footnote, i) => {
+          console.log(`Adding footnote ${i + 1}...`);
+
+          return (acc += `[^${footnote.footnoteNum}]: ${footnote.text}\n`);
+        }, "");
 
   const parsedTranslation = parseTranslationHtml(verse.english);
 

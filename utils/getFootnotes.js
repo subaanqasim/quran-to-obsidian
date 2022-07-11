@@ -14,6 +14,7 @@ export default async function getFootnotes(translationText, quranFilePrefix) {
   const footnoteRefs = translationText.match(footnoteRefRegex);
 
   if (footnoteRefs === null) {
+    console.log("No footnotes for this verse");
     return null;
   }
 
@@ -42,5 +43,6 @@ export default async function getFootnotes(translationText, quranFilePrefix) {
     results = [...results, { footnoteNum: i + 1, ref, text }];
   }
 
+  console.log("Footnotes fetched and parsed ✅");
   return results;
 }

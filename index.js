@@ -24,12 +24,14 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
 
 (function quranToObsidian() {
   for (const surah of surahs) {
-    // create folder for current surah
     const surahFolderPath = `${vaultPathQuran}/${surah.name}`;
 
     (async function createFiles() {
       try {
+        // create folder for current surah
         await fs.ensureDir(surahFolderPath);
+        console.log(`Created folder for surah ${surah.name}`);
+
         // create md file for current surah
         const surahFileName = `${quranFilePrefix}${surah.name} (${surah.id})`;
         const surahFilePath = `${surahFolderPath}/${surahFileName}.md`;
@@ -38,8 +40,10 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
           surahFileName,
           quranFilePrefix
         );
+        console.log(`Generated markdown for ${surah.name} ✅`);
 
         await fs.outputFile(surahFilePath, surahFileContent);
+        console.log(`Created surah file for ${surah.name}`);
 
         // check to see if verses data for current surah exists
         if (!fs.pathExistsSync(`./data/verses/${surah.id}.json`)) {
@@ -52,6 +56,8 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
         for (const verse of verses) {
           const verseFileName = `${quranFilePrefix}${surah.id} - ${verse.verseNumber}`;
           const verseFilePath = `${surahFolderPath}/${verseFileName}.md`;
+
+          console.log(`Generating markdown for verse ${verse.verseKey}`);
           const verseFileContent = await createVerseFileContent(
             verse,
             verseFileName,
@@ -59,12 +65,10 @@ const { surahs } = fs.readJsonSync("./data/surahData.json");
             surahFileName,
             quranFilePrefix
           );
+          console.log(`Verse ${verse.verseKey} markdown generated ✅`);
 
-          fs.outputFile(verseFilePath, verseFileContent, (err) => {
-            if (err) {
-              console.log(err);
-            }
-          });
+          await fs.outputFile(verseFilePath, verseFileContent);
+          console.log(`✅CREATED ${verse.verseKey}.md✅`);
         }
       } catch (err) {
         console.error(err);

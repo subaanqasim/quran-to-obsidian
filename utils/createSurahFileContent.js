@@ -4,7 +4,7 @@ export default function createSurahFileContent(
   quranFilePrefix
 ) {
   // TODO: fix sorting somehow ?base on file.ctime
-
+  console.log(`Generating surah ${surah.name} markdown content...`);
   return `
 ---
 aliases: ["Surah ${surah.name}", "Chapter 2"]
