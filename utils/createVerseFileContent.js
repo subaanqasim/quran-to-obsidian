@@ -8,8 +8,6 @@ export default async function createVerseFileContent(
   surahFileName,
   quranFilePrefix
 ) {
-  // TODO: Add 'related verses' dataview section at bottom to allow for 'see footnote for x verse' footnote link
-
   // TODO: fix sorting somehow - ?base on file.ctime
 
   const footnotes = await getFootnotes(verse.english, quranFilePrefix);
@@ -47,6 +45,13 @@ ${footnoteText}
 \`\`\`dataview
 LIST from [[${verseFileName}]]
 WHERE !contains(file.name, "${quranFilePrefix}")
+SORT file.name ASC
+\`\`\`
+
+### Related verses (footnote backlinks)
+\`\`\`dataview
+LIST from [[${verseFileName}]]
+WHERE contains(file.tag, Qvref)
 SORT file.name ASC
 \`\`\`
 
