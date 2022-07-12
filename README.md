@@ -4,6 +4,9 @@ Generate separate markdown files for all surahs and ayat of the Qur'an. Perfect 
 
 _All Qur’an and translation data is sourced from the [Quran.com API](https://quran.api-docs.io/)._
 
+![image](https://user-images.githubusercontent.com/96848399/178445019-61576392-40e6-46f4-8383-c938f1511f9c.png)
+
+
 ## Intention
 
 I’ve always found it a pain to copy and paste Arabic verses of the Qur’an and their translation when making notes about anything Islam related. This project aims to solve that issue.
@@ -24,14 +27,28 @@ Specifically created to be optimised for the free note-taking app [Obsidian.md](
 - Each ayah backlinked to its corresponding surah
 - Prefixed file names and multiple alias formats
 
+![image](https://user-images.githubusercontent.com/96848399/178448935-62f02568-7d7b-419f-ae32-a34d5e4504fd.png)
+
+
 ### Super clean page previews
 
 - No longer have to faff around copying and pasting translations and Arabic text and have it bloat your notes
 
-### Perfect for embedding into your notes
+![image](https://user-images.githubusercontent.com/96848399/178449536-25c58c22-ef90-4bfa-b736-ec16ac50c7f5.png)
+
+
+### Perfect for embedding and linking
 
 - Premade block links for just the Arabic text, or just the translation
 - Prefixed file names and multiple alias formats makes it quick and easy to link notes that suits your preferences.
+- Dataview queries for any notes that link to that ayah or surah, allowing each Qur'an note to act as a contents page for itself
+
+![image](https://user-images.githubusercontent.com/96848399/178456369-197dce3c-cfad-45ba-9bec-e8b3e76fabd6.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/96848399/178459107-c82ce522-c39c-461a-b0ef-abd1c2f4a46f.png)
+
 
 ### And more…
 
@@ -61,7 +78,7 @@ Follow the following steps if you’d like to customise and have more control:
 
 You’ll need Node and npm installed. If you don’t, you can install them from the [official Node.js website](https://nodejs.org/)
 
-Download the `quran-to-obsidian` zip from the latest release.
+Download the `Source code` zip from the latest release.
 
 Unzip/extract the zip file into your Obsidian `vault` directory.
 
@@ -110,6 +127,10 @@ The Qur'an files can leverage custom styles and extra features from Admonition a
 
 In your Admonition plugin settings, create 2 new Admonition types called `arabic` and `translation`, respectively. The actual settings for styling etc. are up to you. Below are my settings for reference:
 
+![image](https://user-images.githubusercontent.com/96848399/178459803-aabf43d9-92bf-4169-9b47-135cf6d7431c.png)
+
+
+
 #### Obsidian CSS snippets
 
 You can use CSS snippets in Obsidian to customise styling to your needs. I added a custom css-class to the Arabic text in the verse files so that you can apply a custom Arabic font so it displays optimally.
@@ -138,6 +159,6 @@ You can find other official Qur'an fonts [here](https://fonts.qurancomplex.gov.s
 
 ## Contributing
 
-If you have any suggestions, improvements or feature requests please check the currently open [issues](https://github.com/subaanqasim/quran-to-obsidian/issues). If there aren’t any similar issues, please [create one](https://github.com/subaanqasim/quran-to-obsidian/issues/new).
+If you have any suggestions, improvements or feature requests please check the currently open [issues](https://github.com/subaanqasim/quran-to-obsidian/issues). If there aren’t any similar issues, please [create one](https://github.com/subaanqasim/quran-to-obsidian/issues/new).
 
 PRs welcome :)
