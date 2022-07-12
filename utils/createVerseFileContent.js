@@ -50,8 +50,7 @@ SORT file.name ASC
 
 ### Related verses (footnote backlinks)
 \`\`\`dataview
-LIST from [[${verseFileName}]]
-WHERE contains(file.tag, Qvref)
+LIST FROM [[${verseFileName}]] AND #Qvref
 SORT file.name ASC
 \`\`\`
 
