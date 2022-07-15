@@ -13,7 +13,7 @@
   "dependencies": {
     "bottleneck": "^2.19.5",
     "fs-extra": "^10.1.0",
-    "node-fetch": "^3.2.6",
+    "node-fetch": "^3.2.8",
     "node-html-markdown": "^1.2.0",
     "prompt-sync": "^4.2.0"
   }
