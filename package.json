@@ -14,7 +14,7 @@
     "bottleneck": "^2.19.5",
     "fs-extra": "^10.1.0",
     "node-fetch": "^3.2.10",
-    "node-html-markdown": "^1.2.0",
+    "node-html-markdown": "^1.2.2",
     "prompt-sync": "^4.2.0"
   }
 }
